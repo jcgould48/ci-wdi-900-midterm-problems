@@ -82,9 +82,13 @@ function containsSpace(str) {
 
 function digits(num) {
   const numArr = [];
-for (i=0; i<num.length; i++){
-numArr.push(num[i])
-
+  let numStr = num.toString()
+for (i=0; i<numStr.length; i++){
+  if(numStr[i]==='.'|| numStr[i] ==='-')
+  {}
+  else {
+numArr.push(parseInt(numStr[i]))
+  }
 }
 return numArr;
 }
@@ -105,17 +109,20 @@ function isValidPassword(str) {
 }
 
 function onlyPunchy(arr) {
+  
   const newArr = [];
-  let newStr= ''
-  const abc = 'qazwsxedcrfvtgbyhnujmikolp'
+  
   for (i=0; i<arr.length; i++){
-    let movie = arr[i]
-  if(abc.includes(movie[i])){
-   newStr += movie
-   newArr.push(newStr)
+   let movie = arr[i]
+    let edit = movie.slice(0,movie.indexOf('!')) 
+    if(edit.length< 15){
+    
+    newArr.push(edit+'!')}
+    
+    }return newArr
   }
-  }
-}
+
+
 
 
 module.exports = {
